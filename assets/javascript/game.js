@@ -50,7 +50,7 @@ function generateCrystalValue() {
     var max = 12;
     var crystalValue = [];
     for (var i = 0; i < max; i++) {
-        var temp = Math.floor(Math.random() * max);
+        var temp = Math.floor((Math.random() * max) + 1);
         if (crystalValue.indexOf(temp) == -1) {
             crystalValue.push(temp);
         }
