@@ -1,8 +1,10 @@
 // 
 // Create a variable to store sytem generated random number between 19 - 120
-// Create variable to store value of each crystal between 1 - 12 
 // System selects a randon number and dispay in the screen
+// Create an array to store random value of each crystal between 1 - 12 
 // Assign unique random value to each crystal 
+// When user click on each cystal, the sum of each crystal value should be displayed as 'Your total Score' 
+// D
 
 // VARIABLES
 // ====================================================================================================================================
@@ -12,6 +14,7 @@ var redCrystal = 0;
 var blueCrystal = 0;
 var yellowCrystal = 0;
 var greenCrystal = 0;
+var score = 0;
 var wins = 0;
 var losses = 0;
 
@@ -46,6 +49,7 @@ $(".guessNum").append(randNum);
 // greenCrystal = crystalValue[3];
 // console.log("Green Crystal value is " + greenCrystal);
 
+// Function to generate random numbers between 1 to 12 and assign unique random value to each crystal 
 function generateCrystalValue() {
     var max = 12;
     var crystalValue = [];
@@ -66,7 +70,33 @@ function generateCrystalValue() {
     console.log("Yellow Crystal value is " + yellowCrystal);
     greenCrystal = crystalValue[3];
     console.log("Green Crystal value is " + greenCrystal);
-}
+};
 generateCrystalValue();
 
+function userScore () {
+    $("#red").click (function () {
+        score = score + redCrystal;
+        console.log(score);
+        $(".totalScore").text(score);
+    });
+    
+    $("#blue").click (function () {
+        score = score + blueCrystal;
+        console.log(score);
+        $(".totalScore").text(score);
+    });
+    
+    $("#yellow").click (function () {
+        score = score + yellowCrystal;
+        console.log(score);
+        $(".totalScore").text(score);
+    });
+    
+    $("#green").click (function () {
+        score = score + greenCrystal;
+        console.log(score);
+        $(".totalScore").text(score);
+    }); 
+};
+userScore(); 
 
