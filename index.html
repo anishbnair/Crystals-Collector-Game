@@ -33,20 +33,14 @@
         <!--rowdiv-->
 
 
-        <div class="crystalImages">
-            <div class="col-sm-12">
-                <img src="assets/images/red.png" class="click" id="red">
-                <img src="assets/images/blue.png" class="click" id="blue">
-                <img src="assets/images/yellow.png" class="click" id="yellow">
-                <img src="assets/images/green.png" class="click" id="green">
-            </div>
-        </div>
+        <div class="crystalImages"></div>
 
 
         <div class="row start">
             <div class="col-lg-4">
-                <div class="total">
+                <div class="randomNumber">
                     <h2>Random Number:</h2>
+                    <div id="numberToGuess"></div>                    
                 </div>
             </div>
 
@@ -54,9 +48,9 @@
                 <div class="result">
                     <h2>
                         Wins:
-                        <div id="yourWins"></div>
+                        <div id="displayWins"></div>
                         Losses:
-                        <div id="yourLosses"></div>
+                        <div id="displayLosses"></div>
                     </h2>
                 </div>
             </div>
@@ -65,7 +59,7 @@
                 <div class="score">
                     <h2>Your total score:</h2>
                 </div>
-                <div class="addition"></div>
+                <div id="displayScore"></div>
             </div>
         </div>
 
