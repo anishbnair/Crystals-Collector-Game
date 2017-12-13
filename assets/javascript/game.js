@@ -1,102 +1,87 @@
-// 
+// Peu
 // Create a variable to store sytem generated random number between 19 - 120
 // System selects a randon number and dispay in the screen
 // Create an array to store random value of each crystal between 1 - 12 
 // Assign unique random value to each crystal 
-// When user click on each cystal, the sum of each crystal value should be displayed as 'Your total Score' 
-// D
+// When user click on each cystal, dispay 'Your total Score' as the sum of each crystal value
+// The player wins if their total score matches the random number from the beginning of the game.
+// The player loses if their score goes above the random number.
+// The game restarts whenever the player wins or loses.
 
 // VARIABLES
 // ====================================================================================================================================
-var randNum;
-//var crystalValue = [];
-var redCrystal = 0;
-var blueCrystal = 0;
-var yellowCrystal = 0;
-var greenCrystal = 0;
-var score = 0;
+var randNum = 0;
+var totalScore = 0;
 var wins = 0;
 var losses = 0;
+var crystals = ['assets/images/red.png', 'assets/images/blue.png', 'assets/images/yellow.png', 'assets/images/green.png'];
 
-
-// Store the sytem generated random number between 19 - 120 to variable 
-randNum = Math.floor((Math.random() * 100) + 19);
-console.log("System generated Random Number is " + randNum);
-
-// Display random number on the screen
-$(".guessNum").append(randNum);
-
-// Assign random value to each crystal  
-// redCrystal = Math.floor((Math.random() * 12) + 1);
-// console.log("Red Crystal value is " + redCrystal);
-// blueCrystal = Math.floor((Math.random() * 12) + 1);
-// console.log("Blue Crystal value is " + blueCrystal);
-// yellowCrystal = Math.floor((Math.random() * 12) + 1);
-// console.log("Yellow Crystal value is " + yellowCrystal);
-// greenCrystal = Math.floor((Math.random() * 12) + 1);
-// console.log("Green Crystal value is " + greenCrystal);
-// for (i = 0; i < 4; i++) {
-//     crystalValue[i] = Math.floor((Math.random() * 12) + 1);
-//     console.log(crystalValue[i]);
-//     //console.log(crystalValue[i]);
-// };
-// redCrystal = crystalValue[0];
-// console.log("Red Crystal value is " + redCrystal);
-// blueCrystal = crystalValue[1];
-// console.log("Blue Crystal value is " + blueCrystal);
-// yellowCrystal = crystalValue[2];
-// console.log("Yellow Crystal value is " + yellowCrystal);
-// greenCrystal = crystalValue[3];
-// console.log("Green Crystal value is " + greenCrystal);
+// FUNCTIONS  
+// ===================================================================================================================================
+// Function to create random numbers
+function getRandNumber(max, min) {
+    return Math.floor((Math.random() * (max - min + 1) + min));
+}
 
 // Function to generate random numbers between 1 to 12 and assign unique random value to each crystal 
-function generateCrystalValue() {
-    var max = 12;
+function generateCrystals() {
     var crystalValue = [];
-    for (var i = 0; i < max; i++) {
-        var temp = Math.floor((Math.random() * max) + 1);
+    for (var i = 0; i < 4; i++) {
+        var temp = getRandNumber(1, 12);
         if (crystalValue.indexOf(temp) == -1) {
             crystalValue.push(temp);
         }
         else
             i--;
     }
-    console.log(crystalValue);
-    redCrystal = crystalValue[0];
-    console.log("Red Crystal value is " + redCrystal);
-    blueCrystal = crystalValue[1];
-    console.log("Blue Crystal value is " + blueCrystal);
-    yellowCrystal = crystalValue[2];
-    console.log("Yellow Crystal value is " + yellowCrystal);
-    greenCrystal = crystalValue[3];
-    console.log("Green Crystal value is " + greenCrystal);
-};
-generateCrystalValue();
+    console.log("Random numbers for crystal values are " + crystalValue);
+    // Loop to assign each 
+    for (i = 0; i < crystalValue.length; i++) {
+        var imageCrystal = $("<img>");
+        imageCrystal.attr("value", crystalValue[i]);
+        imageCrystal.attr("src", crystals[i]);
+        //imageCrystal.attr("alt", "crystals");
+        imageCrystal.addClass("crystalImage")
+        $(".crystalImages").append(imageCrystal);
+    }
+}
 
-function userScore () {
-    $("#red").click (function () {
-        score = score + redCrystal;
-        console.log(score);
-        $(".totalScore").text(score);
-    });
-    
-    $("#blue").click (function () {
-        score = score + blueCrystal;
-        console.log(score);
-        $(".totalScore").text(score);
-    });
-    
-    $("#yellow").click (function () {
-        score = score + yellowCrystal;
-        console.log(score);
-        $(".totalScore").text(score);
-    });
-    
-    $("#green").click (function () {
-        score = score + greenCrystal;
-        console.log(score);
-        $(".totalScore").text(score);
-    }); 
-};
-userScore(); 
+function restartGame() {
+    $(".crystalImages").empty();
+    crystalGame();
+}
+
+function crystalGame() {
+    totalScore = 0;
+    $("#displayScore").text(totalScore);
+    randNum = getRandNumber(19, 120);
+    console.log("Random Number is " + randNum);
+    $("#numberToGuess").text(randNum);
+    generateCrystals();
+
+    $(".crystalImage").on("click", function () {
+        totalScore = totalScore + parseInt($(this).attr("value"));
+        console.log("Total score is " + totalScore);
+        //var crystalValue = ($(this).attr("data-num"));
+        //crystalValue = parseInt(crystalValue);
+        $("#displayScore").text(totalScore);
+        if (totalScore === randNum) {
+            wins++;
+            $("#displayWins").text(wins);
+            restartGame();
+        } else if (totalScore > randNum) {
+            losses++;
+            $("#displayLosses").text(losses);
+            restartGame();
+        }
+    })
+}
+
+// ==================================================================================================================================
+$(document).ready(function () {
+    crystalGame();
+})
+// ==================================================================================================================================
+
+
 
