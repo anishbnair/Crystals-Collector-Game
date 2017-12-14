@@ -1,11 +1,11 @@
 body {
-    background: url("../images/background.jpg");
+    background: url("../images/wood_pattern.png");
     font-family: 'Cormorant Upright', serif;
     text-align: center;
 }
 
 .container {
-    background-color: #6ed3cf;
+    background-color: #dcc7e8;
 }
 
 .head {
@@ -20,7 +20,7 @@ body {
 
 .gameRules {
     font-family: 'Cormorant Upright', serif;
-    background-color: #6ed3cf;
+    background-color: #dcc7e8;
     margin-bottom: 10px;
     font: 35px;
     color: black;
@@ -38,7 +38,7 @@ body {
 }
 
 .display {
-    background-color: #9068be;
+    background-color: #0c4743;
     color: #e1e8f0;
     font: 25px;
     margin-bottom: 50px;
