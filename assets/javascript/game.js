@@ -1,4 +1,4 @@
-// Peu
+// Pseudo code
 // Create a variable to store sytem generated random number between 19 - 120
 // System selects a randon number and dispay in the screen
 // Create an array to store random value of each crystal between 1 - 12 
@@ -55,15 +55,13 @@ function crystalGame() {
     totalScore = 0;
     $("#displayScore").text(totalScore);
     randNum = getRandNumber(19, 120);
-    console.log("Random Number is " + randNum);
+    // console.log("Random Number is " + randNum);
     $("#numberToGuess").text(randNum);
     generateCrystals();
 
     $(".crystalImage").on("click", function () {
         totalScore = totalScore + parseInt($(this).attr("value"));
-        console.log("Total score is " + totalScore);
-        //var crystalValue = ($(this).attr("data-num"));
-        //crystalValue = parseInt(crystalValue);
+        // console.log("Total score is " + totalScore);
         $("#displayScore").text(totalScore);
         if (totalScore === randNum) {
             wins++;
