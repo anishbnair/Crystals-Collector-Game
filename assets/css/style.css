@@ -1,9 +1,57 @@
 body {
     background: url("../images/background.jpg");
+    font-family: 'Cormorant Upright', serif;
+    text-align: center;
 }
 
 .container {
     background-color: #6ed3cf;
 }
 
+.head {
+    margin-bottom: 20px;
+    border: solid 1px #ddd;
+}
 
+#title {
+    padding-top: 15px;
+    font-family: 'Cormorant Upright', serif;
+}
+
+.gameRules {
+    font-family: 'Cormorant Upright', serif;
+    background-color: #6ed3cf;
+    margin-bottom: 10px;
+    font: 35px;
+    color: black;
+}  
+
+.crystalImage {
+	height: 111px;
+	border: solid 1px #272525;
+	margin-left: 10px
+}
+
+.crystalImage:firstchild {
+	margin-left: 0px;
+
+}
+
+.start {
+    background-color: #9068be;
+    color: #e1e8f0;
+    font: 25px;
+    margin-bottom: 50px;
+}
+
+.randomNumber {
+    font-size: 30px;
+}
+
+.result{
+    font-size: 30px;
+}
+
+#displayScore{
+    font-size: 30px;
+}
