@@ -34,34 +34,32 @@ function generateCrystals() {
         else
             i--;
     }
-    console.log("Random numbers for crystal values are " + crystalValue);
-    // Loop to assign each 
+    // Loop to add each crytal image and assign unique value to each crystal 
     for (i = 0; i < crystalValue.length; i++) {
         var imageCrystal = $("<img>");
         imageCrystal.attr("value", crystalValue[i]);
         imageCrystal.attr("src", crystals[i]);
-        //imageCrystal.attr("alt", "crystals");
         imageCrystal.addClass("crystalImage")
         $(".crystalImages").append(imageCrystal);
     }
 }
 
+// Function to restart the game 
 function restartGame() {
     $(".crystalImages").empty();
     crystalGame();
 }
 
+// Function to start the crystal game 
 function crystalGame() {
     totalScore = 0;
     $("#displayScore").text(totalScore);
     randNum = getRandNumber(19, 120);
-    // console.log("Random Number is " + randNum);
     $("#numberToGuess").text(randNum);
     generateCrystals();
 
     $(".crystalImage").on("click", function () {
         totalScore = totalScore + parseInt($(this).attr("value"));
-        // console.log("Total score is " + totalScore);
         $("#displayScore").text(totalScore);
         if (totalScore === randNum) {
             wins++;
