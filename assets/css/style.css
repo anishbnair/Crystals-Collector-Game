@@ -10,12 +10,15 @@ body {
 
 .head {
     margin-bottom: 20px;
-    border: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    background-color:#e0b09d;
+    text-align: center;
 }
 
 #title {
     padding-top: 15px;
     font-family: 'Cormorant Upright', serif;
+    text-align: center;
 }
 
 .gameRules {
@@ -24,6 +27,7 @@ body {
     margin-bottom: 10px;
     font: 35px;
     color: black;
+    border-bottom: solid 1px #ddd;
 }  
 
 .crystalImage {
@@ -45,13 +49,16 @@ body {
 }
 
 .randomNumber {
+    font-family: 'Cormorant Upright', serif;
     font-size: 30px;
 }
 
 .result{
+    font-family: 'Cormorant Upright', serif;
     font-size: 30px;
 }
 
 #displayScore{
+    font-family: 'Cormorant Upright', serif;
     font-size: 30px;
 }
