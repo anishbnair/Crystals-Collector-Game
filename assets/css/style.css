@@ -11,14 +11,12 @@ body {
 .head {
     margin-bottom: 20px;
     border-bottom: solid 1px #ddd;
-    background-color:#e0b09d;
-    text-align: center;
+    background-color:#e0b09d;    
 }
 
-#title {
+.title {
     padding-top: 15px;
-    font-family: 'Cormorant Upright', serif;
-    text-align: center;
+    font-family: 'Cormorant Upright', serif;   
 }
 
 .gameRules {
@@ -38,7 +36,6 @@ body {
 
 .crystalImage:firstchild {
 	margin-left: 0px;
-
 }
 
 .display {
